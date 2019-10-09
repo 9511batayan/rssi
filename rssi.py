@@ -32,10 +32,10 @@ class RSSI:
 		for essid_line_idx,essid_line in enumerate(iwlist_table):
 			if self.essid in essid_line:
 				sigline_idx = essid_line_idx + 1
-				sigline = iwlist[sigline_idx]
+				sigline = iwlist_table[sigline_idx]
 				begin_idx = sigline.rfind('=')
 				end_idx = sigline.rfind('/')
-				rssi_per = signal_line[begin_idx + 1 : end_idx]
+				rssi_per = sigline[begin_idx + 1 : end_idx]
 				rssi_dBm = 0.6 * int(rssi_per) - 95
 				return rssi_dBm
 
